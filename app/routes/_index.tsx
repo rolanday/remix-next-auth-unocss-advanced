@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { V2_MetaFunction } from "@remix-run/node";
+import { TestComponent } from "~/components/test.tsx";
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -19,6 +20,7 @@ export default function Index() {
         {count.toString(10)}
       </button>
       <div>ba</div>
+      <TestComponent />
     </div>
   );
 }
