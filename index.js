@@ -12,7 +12,7 @@ closeWithGrace(async ({ err }) => {
 });
 
 if (process.env.NODE_ENV === "production") {
-  await import("./server-build/index.js");
+  await import("./build.server/index.js");
 } else {
   await import("./server/index.ts");
 }

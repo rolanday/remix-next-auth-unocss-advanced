@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../server/auth.options.ts"],
-  "sourcesContent": ["import GithubProvider from \"next-auth/providers/github\";\nimport type { AuthOptions } from \"next-auth\";\nimport { env } from \"../app/env.mjs\";\nimport { AuthAdapter } from \"./auth.adapter.js\";\n\nexport const authOptions: AuthOptions = {\n  secret: env.SESSION_SECRET,\n  // Set adapter to use here. Can be one of the standard \"inbox\" adapters,\n  // or implement your own as shown by ./auth.adapter.ts\n  adapter: AuthAdapter(),\n  providers: [\n    GithubProvider.default({\n      clientId: env.OAUTH_GITHUB_ID,\n      clientSecret: env.OAUTH_GITHUB_SECRET,\n    }),\n  ],\n};\n"],
-  "mappings": "AAAA,OAAO,oBAAoB;AAE3B,SAAS,WAAW;AACpB,SAAS,mBAAmB;AAErB,MAAM,cAA2B;AAAA,EACtC,QAAQ,IAAI;AAAA;AAAA;AAAA,EAGZ,SAAS,YAAY;AAAA,EACrB,WAAW;AAAA,IACT,eAAe,QAAQ;AAAA,MACrB,UAAU,IAAI;AAAA,MACd,cAAc,IAAI;AAAA,IACpB,CAAC;AAAA,EACH;AACF;",
-  "names": []
-}
