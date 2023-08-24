@@ -3,8 +3,17 @@ import { fileURLToPath } from "url";
 import esbuild from "esbuild";
 import fsExtra from "fs-extra";
 import { globSync } from "glob";
+import z from "zod";
 
-const pkg = fsExtra.readJsonSync(path.join(process.cwd(), "package.json"));
+const pkgSchema = z.object({
+  engines: z.object({
+    node: z.string().regex(/^\d+$/),
+  }),
+});
+
+const pkg = pkgSchema.parse(
+  fsExtra.readJsonSync(path.join(process.cwd(), "package.json"))
+);
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const here = (...s: Array<string>) => path.join(__dirname, ...s);
